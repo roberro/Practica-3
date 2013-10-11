@@ -99,4 +99,19 @@ describe("Clase GameBoard", function(){
 
     });
 
+    it("iterate", function(){
+
+	Game = {width: 320, height: 480};
+
+	var miNave = new GameBoard();
+	miNave.objects = [{obj: function(){}, args: function(){}}];
+	spyOn(miNave.objects[0], "obj");
+	spyOn(miNave.objects[0], "args");
+
+	miNave.iterate("obj", "obj1", "obj2","obj3");
+	miNave.iterate("args", "args1", "args2","args3");
+	expect(miNave.objects[0].obj).toHaveBeenCalledWith("obj1", "obj2","obj3");
+	expect(miNave.objects[0].args).toHaveBeenCalledWith("args1", "args2","args3");
+    });
+
 });
