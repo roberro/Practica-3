@@ -82,6 +82,21 @@ describe("Clase GameBoard", function(){
 
 	expect(miNave.add(obj)).toEqual("nave");
 
-	
     });
+
+    it("remove", function(){
+
+	Game = {width: 320, height: 480};
+
+	var miNave = new GameBoard();
+	var obj = "nave";
+	miNave.add(obj);
+	expect(miNave.objects[0]).toEqual("nave");	
+	miNave.resetRemoved(obj);
+	miNave.remove(obj);
+	miNave.finalizeRemoved(obj);
+	expect(miNave.objects[0]).toEqual(undefined);
+
+    });
+
 });
