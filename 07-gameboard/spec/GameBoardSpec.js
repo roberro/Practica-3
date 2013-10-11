@@ -80,7 +80,7 @@ describe("Clase GameBoard", function(){
 	
 	miNave.add(obj);
 
-	expect(miNave.add(obj)).tobe("nave");
+	expect(miNave.add(obj)).toEqual("nave");
 
 	
     });
