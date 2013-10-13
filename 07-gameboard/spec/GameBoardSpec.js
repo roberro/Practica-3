@@ -114,4 +114,21 @@ describe("Clase GameBoard", function(){
 	expect(miNave.objects[0].args).toHaveBeenCalledWith("args1", "args2","args3");
     });
 
+
+    it("detect", function(){
+
+	var miNave = new GameBoard();
+	var obj = "nave";
+	
+	miNave.add(obj);
+
+	var func = {call: function(){}};
+	spyOn(func, "call");
+	miNave.detect(func)
+	waits(100);
+
+	expect(miNave.objects[0]).toBeTruthy();
+	expect(miNave.objects[1]).toBeFalsy();
+	
+    });
 });
