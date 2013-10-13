@@ -206,6 +206,7 @@ var GameBoard = function() {
     // Iterador que aplica el método funcName a todos los
     // objetos de objects
     this.iterate = function(funcName) {
+	
 	// Convertimos en un array args (1..)
 	var args = Array.prototype.slice.call(arguments,1);
 
