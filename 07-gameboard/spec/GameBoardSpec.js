@@ -153,4 +153,15 @@ describe("Clase GameBoard", function(){
 		expect(board.draw).toHaveBeenCalled();
 	});
     });
+
+    it("overlap", function(){
+	var miNave = new GameBoard();
+	var o1 = {x:2,y:2,h:1,w:1};
+	var o2 = {X:1,y:1,h:2,w:2};
+
+	miNave.add(o1);
+	miNave.add(o2);
+
+	expect(miNave.overlap(o1,o2)).toBeTruthy();	
+    });
 });
