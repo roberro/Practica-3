@@ -59,4 +59,19 @@ describe("Clase PlayerMissile", function(){
 
     });
 
+    it("step", function(){
+	Game = {width: 320, height: 480, keys: {'fire': true}};
+
+	var miMissile = new PlayerShip();
+	
+	function xNueva(dt) {
+	    var vxNueva = -miNave.maxVel;
+	    var xNueva =  miNave.x + vxNueva * dt;
+	    if (xNueva < 0) xNueva = 0;
+	    return xNueva;
+	}
+
+	miMissile.step(1);
+	expect(miNave.x).toEqual(Game.width/2 - miNave.w / 2);
+    });
 });
