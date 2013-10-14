@@ -59,4 +59,18 @@ describe("Clase PlayerMissile", function(){
 
     });
 
+    it("step", function(){
+	var miMissile = new PlayerMissile(1,1);
+	misil = {
+  		map : {missile: { sx: 0, sy: 30, w: 2, h: 10, frames: 1,vy: -700 }},
+ 		remove: function(obj) {}
+	};
+
+	miMissile.board=misil;
+
+	spyOn(misil, "remove");
+
+	miMissile.step(1);
+	expect(misil.remove).toHaveBeenCalled();
+    });
 });

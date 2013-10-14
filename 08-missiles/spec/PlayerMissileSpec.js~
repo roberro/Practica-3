@@ -60,18 +60,17 @@ describe("Clase PlayerMissile", function(){
     });
 
     it("step", function(){
-	Game = {width: 320, height: 480, keys: {'fire': true}};
+	var miMissile = new PlayerMissile(1,1);
+	misil = {
+  		map : {missile: { sx: 0, sy: 30, w: 2, h: 10, frames: 1,vy: -700 }},
+ 		remove: function(obj) {}
+	};
 
-	var miMissile = new PlayerShip();
-	
-	function xNueva(dt) {
-	    var vxNueva = -miNave.maxVel;
-	    var xNueva =  miNave.x + vxNueva * dt;
-	    if (xNueva < 0) xNueva = 0;
-	    return xNueva;
-	}
+	miMissile.board=misil;
+
+	spyOn(miMissile, "step");
 
 	miMissile.step(1);
-	expect(miNave.x).toEqual(Game.width/2 - miNave.w / 2);
+	expect(misil.remove).toHaveBeenCalled();
     });
 });
